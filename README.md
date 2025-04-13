@@ -18,7 +18,10 @@
 cloudflare:
   api_token: "你的-API-令牌"  # 从 Cloudflare 控制面板获取
   zone_id: "你的-区域-ID"     # 从 Cloudflare 控制面板获取
-  domain: "你的域名.com"      # 需要更新的域名
+  domains:                   # List of domains to update
+    - "sub1.example.com"
+    - "sub2.example.com"
+    - "sub3.example.com"
 
 network:
   interface: "en0"  # 要监控的网络接口名称
