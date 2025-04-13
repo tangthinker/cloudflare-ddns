@@ -1,0 +1,11 @@
+cloudflare:
+  api_token: "你的-API-令牌"  # 从 Cloudflare 控制面板获取
+  zone_id: "你的-区域-ID"     # 从 Cloudflare 控制面板获取
+  domain: "你的域名.com"      # 需要更新的域名
+
+network:
+  interface: "en0"  # 要监控的网络接口名称
+
+interval:
+  success: 600  # 成功更新后的等待时间（秒）
+  error: 10     # 发生错误后的重试等待时间（秒）
