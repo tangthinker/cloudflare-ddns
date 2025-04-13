@@ -11,6 +11,7 @@ A Go-based Dynamic DNS client for Cloudflare that automatically updates IPv6 DNS
 - YAML-based configuration
 - Support for multiple domains
 - Smart record management (create/update based on existence)
+- Custom config file support
 
 ## Configuration
 
@@ -62,18 +63,30 @@ interval:
 
 4. Run the program:
 ```bash
+# Using default config.yaml
 go run main.go
+
+# Using a custom config file
+go run main.go -config /path/to/your/config.yaml
+
+# Build and run with custom config
+go build
+./cloudflare-ddns -config /path/to/your/config.yaml
 ```
 
-Or build and run:
-```bash
-go build
-./cloudflare-ddns
-```
+## Command Line Options
+
+- `-config string`: Path to the configuration file (default: "config.yaml")
+  ```bash
+  # Examples:
+  ./cloudflare-ddns -config custom_config.yaml
+  ./cloudflare-ddns -config /etc/cloudflare-ddns/config.yaml
+  ./cloudflare-ddns -config ../configs/production.yaml
+  ```
 
 ## How It Works
 
-1. The program reads the configuration from `config.yaml`
+1. The program reads the configuration from the specified config file (default: `config.yaml`)
 2. It checks the specified network interface for IPv6 addresses every 10 minutes (configurable)
 3. For each domain in the configuration:
    - Checks if an AAAA record exists
